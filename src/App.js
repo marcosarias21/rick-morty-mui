@@ -1,25 +1,14 @@
-import logo from './logo.svg';
+import { Typography } from '@mui/material';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Typography variant='h5'>HOLA HOLA HOLA</Typography>
+      <Typography variant='p' sx={{ fontWeight: 'bold' }}>Advanced</Typography>
+
+    </>
   );
-}
+};
 
 export default App;
