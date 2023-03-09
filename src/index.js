@@ -19,6 +19,11 @@ const theme = createTheme({
       `,
     },
   },
+  palette: {
+    secondary: {
+      main: '#EEEEEE',
+    },
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
