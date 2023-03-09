@@ -10,8 +10,8 @@ import { SearchBar } from '../SearchBar';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Box>
-      <AppBar position="static">
+    <Box sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
+      <AppBar position='static'>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <IconButton
             size="large"
