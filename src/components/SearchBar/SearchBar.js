@@ -1,5 +1,5 @@
 import {
-  Divider, IconButton, InputBase, Paper,
+  Divider, IconButton, Paper, TextField,
 } from '@mui/material';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 
@@ -16,15 +16,9 @@ const SearchBar = () => {
         width: {
           xs: 235, sm: 235, md: 300, lg: 400,
         },
-        background: 'white',
-        color: 'red',
       }}
       >
-      <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Character"
-        inputProps={{ 'aria-label': 'search google maps' }}
-      />
+      <TextField id="outlined-basic" label="Search Character" variant="outlined" fullWidth size='small' />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
         <ManageSearchIcon />
