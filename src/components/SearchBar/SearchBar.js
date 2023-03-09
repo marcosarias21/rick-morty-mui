@@ -7,7 +7,6 @@ const SearchBar = () => {
   return (
     <Paper
       component="form"
-      elevation='0'
       sx={{
         p: '2px 4px',
         display: { xs: 'flex', sm: 'none', md: 'flex' },
