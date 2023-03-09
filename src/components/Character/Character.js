@@ -9,7 +9,7 @@ const Character = ({ name, image, status }) => {
   return (
     <Grid item xs={3}>
       <Card>
-        <CardActionArea>
+        <CardActionArea sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.05)' } }}>
           <CardMedia sx={{ height: 0, paddingTop: '100%', position: 'relative' }} alt={image} image={image}>
             <Box sx={{ position: 'absolute', top: 5, right: 5 }} >
               <Chip sx={{ borderRadius: 2, padding: '1px', fontWeight: 'bold' }} label={status} color={color} variant="contained" />

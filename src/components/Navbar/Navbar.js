@@ -30,7 +30,7 @@ const Navbar = () => {
             <SearchBar />
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: 1 }}>
-            {navLinks.map(item => <Button key={item.routeName} component='a' href={item.path} color='inherit' sx={{ ':hover': { transform: 'scale(1.1)', transitionDelay: '1' } }}>{item.routeName}</Button>)}
+            {navLinks.map(item => <Button key={item.routeName} component='a' href={item.path} color='inherit' sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.1)' } }}>{item.routeName}</Button>)}
           </Box>
         </Toolbar>
       </AppBar>
