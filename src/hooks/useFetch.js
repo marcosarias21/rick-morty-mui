@@ -2,24 +2,19 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const useFetch = (url) => {
-  console.log(url);
-  const [dataCharacter, setDataCharacter] = useState([{
-    data: null,
-    isLoading: true,
-  }]);
+  const [dataCharacter, setDataCharacter] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     const { data } = await axios(url);
-    setDataCharacter({
-      data,
-      isLoading: false,
-    });
+    setDataCharacter(data);
+    setIsLoading(false);
   };
   useEffect(() => {
     getData();
   }, [url]);
 
-  return dataCharacter;
+  return { dataCharacter, isLoading };
 };
 
 export default useFetch;

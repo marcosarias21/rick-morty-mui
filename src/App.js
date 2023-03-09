@@ -2,14 +2,15 @@ import { Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Character } from './components/Character';
 import { Navbar } from './components/Navbar';
+import { SkeletonCard } from './components/SkeletonCard';
 import useFetch from './hooks/useFetch';
 
 const App = () => {
-  const [dataCharacter, setDataCharacter] = useState([]);
-  const { data } = useFetch('https://rickandmortyapi.com/api/character');
+  const [data, setData] = useState([]);
+  const { dataCharacter, isLoading } = useFetch('https://rickandmortyapi.com/api/character');
 
   useEffect(() => {
-    setDataCharacter(data);
+    setData(dataCharacter);
   }, [data]);
 
   return (
@@ -17,8 +18,9 @@ const App = () => {
       <Navbar />
       <Container>
         <Grid container sx={{ mt: 4 }} spacing={2}>
-          {dataCharacter?.results?.map(dataPj => <Character key={dataPj.id}
-          {...dataPj} />)}
+          {isLoading ? [1, 2, 3, 4].map(item => <SkeletonCard key={item} />)
+            : dataCharacter?.results?.map(dataPj => <Character key={dataPj.id} {...dataPj} />)}
+
         </Grid>
       </Container>
     </>
