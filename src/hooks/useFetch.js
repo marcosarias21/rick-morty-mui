@@ -6,6 +6,7 @@ const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
+    setIsLoading(true);
     const { data } = await axios(url);
     setDataCharacter(data);
     setIsLoading(false);

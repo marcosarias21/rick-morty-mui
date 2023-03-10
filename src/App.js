@@ -13,6 +13,7 @@ const App = () => {
   const { status, specie, name } = useCharacterBook();
   console.log(status);
   const { dataCharacter, isLoading } = useFetch(`https://rickandmortyapi.com/api/character/?status=${status}&species=${specie}&name=${name}`);
+  console.log(isLoading);
 
   useEffect(() => {
     setData(dataCharacter);
