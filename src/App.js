@@ -1,15 +1,18 @@
 import { Box, Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { AccordionButton } from './components/AccordionButton';
+import { FilterSpecie } from './components/FilterSpecie';
 import { Character } from './components/Character';
 import { Navbar } from './components/Navbar';
 import { SelectTypePj } from './components/SelectTypePj';
 import { SkeletonCard } from './components/SkeletonCard';
 import useFetch from './hooks/useFetch';
+import { useCharacterBook } from './store/characterStore';
 
 const App = () => {
   const [data, setData] = useState([]);
-  const { dataCharacter, isLoading } = useFetch('https://rickandmortyapi.com/api/character');
+  const { status, specie, name } = useCharacterBook();
+  console.log(status);
+  const { dataCharacter, isLoading } = useFetch(`https://rickandmortyapi.com/api/character/?status=${status}&species=${specie}&name=${name}`);
 
   useEffect(() => {
     setData(dataCharacter);
@@ -26,7 +29,7 @@ const App = () => {
             position: 'sticky', top: '5.5em', border: '1px solid gray', padding: 2, borderRadius: 2,
           }}>
             <SelectTypePj />
-            <AccordionButton />
+            <FilterSpecie />
           </Box>
         </Box>
         <Grid container sx={{ mt: 4 }} spacing={2}>

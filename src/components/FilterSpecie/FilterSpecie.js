@@ -2,15 +2,16 @@ import {
   Accordion, AccordionDetails, AccordionSummary, ToggleButton, ToggleButtonGroup, Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useState } from 'react';
-import './accordionbutton.css';
+import { useCharacterBook } from '../../store/characterStore';
+import './FilterSpecie.css';
 
-const AccordionButton = () => {
-  const [alignment, setAlignment] = useState('web');
+const FilterSpecie = () => {
+  const { specie, specieSelect } = useCharacterBook();
 
-  const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const handleChange = (event) => {
+    specieSelect(event.target.value);
   };
+
   return (
     <Accordion sx={{ width: 290, mt: 3 }}>
       <AccordionSummary
@@ -24,18 +25,18 @@ const AccordionButton = () => {
         <ToggleButtonGroup
           sx={{ gap: 1 }}
           color="error"
-          value={alignment}
+          value={specie}
           exclusive
           onChange={handleChange}
           aria-label="Platform"
         >
-          <ToggleButton sx={{ border: '0px solid black' }} className='borderToggle' value="web">Human</ToggleButton>
-          <ToggleButton sx={{ border: '0px solid black' }} className='borderToggle' value="android">Aliens</ToggleButton>
-          <ToggleButton sx={{ border: '0px solid black' }} className='borderToggle' value="ios">Humanoid</ToggleButton>
+          <ToggleButton sx={{ border: '0px solid black' }} className='borderToggle' value="human">Human</ToggleButton>
+          <ToggleButton sx={{ border: '0px solid black' }} className='borderToggle' value="alien">Aliens</ToggleButton>
+          <ToggleButton sx={{ border: '0px solid black' }} className='borderToggle' value="humanoid">Humanoid</ToggleButton>
         </ToggleButtonGroup>
       </AccordionDetails>
     </Accordion>
   );
 };
 
-export default AccordionButton;
+export default FilterSpecie;
