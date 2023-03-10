@@ -3,8 +3,12 @@ import {
 } from '@mui/material';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
+import { useCharacterBook } from '../../store/characterStore';
 
 const SearchBar = () => {
+  const [event, setEvent] = useState('');
+  const { searchName } = useCharacterBook();
   return (
     <Paper
       component="form"
@@ -19,10 +23,11 @@ const SearchBar = () => {
       }}
       >
       <TextField
-      placeholder="Search Character"
+      placeholder="Search By Name"
       sx={{
         paddingLeft: '0px',
       }}
+      onChange={(e) => setEvent(e.target.value)}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
@@ -33,7 +38,7 @@ const SearchBar = () => {
         ),
       }} id="outlined-basic" variant="outlined" fullWidth size='small' />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+      <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={() => searchName(event)}>
         <SearchIcon />
       </IconButton>
     </Paper>
