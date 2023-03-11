@@ -13,7 +13,7 @@ const FilterSpecie = () => {
   };
 
   return (
-    <Accordion sx={{ width: 290, mt: 3 }}>
+    <Accordion sx={{ width: '100%', mt: 3 }}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"

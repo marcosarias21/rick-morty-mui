@@ -11,11 +11,12 @@ const SearchBar = () => {
   const { searchName } = useCharacterBook();
   return (
     <Paper
+      elevation={0}
       component="form"
       sx={{
+        background: 'inherit',
         p: '2px 4px',
         display: { xs: 'flex', sm: 'none', md: 'flex' },
-        border: '1px solid gray',
         alignItems: 'center',
         width: {
           xs: 235, sm: 235, md: 300, lg: 400,
@@ -37,7 +38,6 @@ const SearchBar = () => {
           </InputAdornment>
         ),
       }} id="outlined-basic" variant="outlined" fullWidth size='small' />
-      <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={() => searchName(event)}>
         <SearchIcon />
       </IconButton>
