@@ -7,7 +7,7 @@ import useFetch from '../../hooks/useFetch';
 const Detail = () => {
   const { id } = useParams();
   const { dataCharacter, isLoading } = useFetch(`https://rickandmortyapi.com/api/character/${id}`);
-  console.log(isLoading);
+  console.log(dataCharacter);
   return (
     <>
     <Navbar />

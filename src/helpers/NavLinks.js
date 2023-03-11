@@ -5,17 +5,17 @@ import AddLocationIcon from '@mui/icons-material/AddLocation';
 export const navLinks = [
   {
     routeName: 'Characters',
-    path: '#characters',
+    path: '/',
     icon: <PeopleIcon />,
   },
-  {
-    routeName: 'Episodes',
-    path: '#episodes',
-    icon: <FormatListNumberedIcon />,
-  },
-  {
-    routeName: 'Locations',
-    path: '#locations',
-    icon: <AddLocationIcon />,
-  },
+  // {
+  //   routeName: 'Episodes',
+  //   path: '#episodes',
+  //   icon: <FormatListNumberedIcon />,
+  // },
+  // {
+  //   routeName: 'Locations',
+  //   path: '#locations',
+  //   icon: <AddLocationIcon />,
+  // },
 ];

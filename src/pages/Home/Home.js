@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Character } from '../../components/Character';
 import { FilterSpecie } from '../../components/FilterSpecie';
 import { Navbar } from '../../components/Navbar';
+import { NavLinkPopover } from '../../components/NavLinkPopover';
 import { SelectTypePj } from '../../components/SelectTypePj';
 import { SkeletonCard } from '../../components/SkeletonCard';
 import useFetch from '../../hooks/useFetch';
@@ -36,6 +37,7 @@ const Home = () => {
 
         </Grid>
       </Container>
+      <NavLinkPopover />
     </Box>
   );
 };
