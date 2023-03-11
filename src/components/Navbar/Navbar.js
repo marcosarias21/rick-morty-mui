@@ -2,10 +2,12 @@ import {
   AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography,
 } from '@mui/material';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import NavLinkDrawer from './NavLinkDrawer';
 import { navLinks } from '../../helpers/NavLinks';
 import { SearchBar } from '../SearchBar';
+import NavLinkPopover from '../NavLinkPopover/NavLinkPopover';
+import NavLinkDrawer from './NavLinkDrawer';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -30,7 +32,9 @@ const Navbar = () => {
             <SearchBar />
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: 1 }}>
-            {navLinks.map(item => <Button key={item.routeName} component='a' href={item.path} color='primary' sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.1)' } }}>{item.routeName}</Button>)}
+            {navLinks.map(item => <Button key={item.routeName} component={NavLink} to={item.path} color='primary' sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.1)' } }}>{item.routeName}</Button>)}
+            <NavLinkPopover link='Locations' />
+            <NavLinkPopover link= 'Episodes' />
           </Box>
         </Toolbar>
       </AppBar>
