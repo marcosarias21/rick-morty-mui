@@ -11,7 +11,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <Box sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
-      <AppBar position='static'>
+      <AppBar position='static' sx={{ backgroundColor: 'transparent', backdropFilter: 'blur(10px)' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <IconButton
             size="large"
@@ -23,14 +23,14 @@ const Navbar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" component="div" color='primary' sx={{ fontWeight: 'bold' }}>
             Rick & Morty - Material UI
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
             <SearchBar />
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: 1 }}>
-            {navLinks.map(item => <Button key={item.routeName} component='a' href={item.path} color='inherit' sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.1)' } }}>{item.routeName}</Button>)}
+            {navLinks.map(item => <Button key={item.routeName} component='a' href={item.path} color='primary' sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.1)' } }}>{item.routeName}</Button>)}
           </Box>
         </Toolbar>
       </AppBar>

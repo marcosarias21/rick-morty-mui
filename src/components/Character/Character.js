@@ -1,13 +1,16 @@
 import {
   Card, CardActionArea, CardContent, CardMedia, Chip, Grid, Typography, Box, CardActions, Button,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import useStatus from '../../hooks/useStatus';
 
-const Character = ({ name, image, status }) => {
+const Character = ({
+  name, image, status, id,
+}) => {
   const color = useStatus(status);
 
   return (
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={6} md={3}>
       <Card>
         <CardActionArea sx={{ transition: '0.2s', ':hover': { transform: 'scale(1.05)' } }}>
           <CardMedia sx={{ height: 0, paddingTop: '100%', position: 'relative' }} alt={image} image={image}>
@@ -20,7 +23,7 @@ const Character = ({ name, image, status }) => {
           </CardContent>
         </CardActionArea>
         <CardActions sx={{ display: 'flex' }}>
-          <Button variant='contained'>Detalles</Button>
+          <Button component={Link} to={`/${name}/${id}`} variant='contained'>Detalles</Button>
         </CardActions>
       </Card>
     </Grid>

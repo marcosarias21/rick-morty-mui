@@ -14,7 +14,7 @@ const SelectTypePj = () => {
   };
 
   return (
-    <FormControl sx={{ width: 290 }} >
+    <FormControl sx={{ width: '100%' }} >
       <InputLabel id="demo-simple-select-label">Filter By Status</InputLabel>
       <Select
         onChange={handleChange}
